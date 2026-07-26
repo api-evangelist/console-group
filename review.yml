@@ -1,0 +1,485 @@
+aid: console-group
+name: Console Group
+review:
+  question: Does Console Group publish a reachable, documented public API surface for
+    Australian property management, and what is its RESO posture?
+  answer: false
+  date: '2026-07-26'
+  reviewer: API Evangelist
+  homeMarket: Australia
+  tier: property-management
+  specsHarvested: 0
+  openapiDirectoryCreated: false
+
+resoPosture:
+  certified: false
+  posture: No RESO reference found anywhere on console.com.au or in any Console Group
+    or parent-group documentation. Australia has no MLS, so there is nothing to
+    certify against.
+  webApiCertification: none found
+  dataDictionaryCertification: none found
+  dataDictionaryVersion: null
+  certificationDirectoryEvidence: |
+    No RESO certification directory listing was found for Console Group, Console
+    Cloud, or Reapit PM. RESO certification is a North American, NAR-driven
+    construct tied to MLS participation. Australia's residential market is a
+    portal duopoly — REA Group's realestate.com.au and Domain — sitting over
+    state land registries, PEXA for electronic conveyancing, and PropTrack /
+    CoreLogic for valuation. There is no cooperative MLS database in Australia
+    and therefore no RESO certification programme that an Australian property
+    management vendor could participate in.
+  odataEndpoints: none found
+  metadataDocument:
+    probed:
+    - url: https://www.console.com.au/$metadata
+      status: 404
+      note: Webflow marketing site 404 page returned; not an OData service.
+    result: No OData $metadata document is served by Console Group on any probed host.
+  universalPropertyIdentifier:
+    present: false
+    note: No UPI, no RESO Data Dictionary field naming, and no OData conventions
+      appear anywhere in Console Group's public material.
+  searchedFor:
+  - RESO Web API certification
+  - RESO Data Dictionary certification and version
+  - RESO certification directory listing
+  - Reso / OData endpoints
+  - $metadata documents
+  - Universal Property Identifier (UPI)
+  grepEvidence: |
+    A case-insensitive grep for "RESO", "Data Dictionary", "OData", "Universal
+    Property Identifier" and "UPI" across the fetched console.com.au homepage and
+    across the parent group's full developer documentation corpus
+    (foundations-documentation.reapit.cloud readme.md, api.md,
+    api/api-documentation.md, platform-glossary.md, developer-terms-and-conditions.md,
+    listing-your-app.md, faqs.md) returned zero substantive matches. The only hits
+    were unrelated substrings.
+
+accessGate:
+  gate: partner-only
+  gated: true
+  whatADeveloperMustSignOrJoin: |
+    Nothing is published. Console Group operates a live integration marketplace at
+    https://www.console.com.au/integrate listing roughly eighteen third-party
+    products (MyConnect, Tapi, Inspection Express, Bricks + Agent, Snug, DEFT,
+    REI Forms Live, Property Inspection Manager, Inspection Manager, Move Me In,
+    FastConnect, YourPorter, Compare and Connect, Movinghub, plus native Reapit PM
+    Inspect, Console Pay, Reapit Sales, InspectRealEstate and Agentbox), which is
+    direct evidence that a working private integration API exists. But that page
+    carries no developer documentation, no API reference, no "become an integration
+    partner" call to action and no application form. The /partners page is a list of
+    ten certified TRAINING partners for property managers, not a technology partner
+    programme. The only published route to the company for a would-be integrator is
+    the generic /contact-us and /book-a-demo forms. The honest classification is
+    therefore partner-only: entry is by commercial arrangement negotiated privately,
+    with no self-serve signup, no application form and no published terms. A reader
+    who prefers the strictest reading could call this none-published; partner-only
+    is chosen because the operating marketplace proves a route exists even though
+    the route itself is unpublished.
+  selfServeSignup: false
+  applicationForm: false
+  mlsOrBoardMembership: not applicable — Australia has no MLS
+  idxOrVowLicence: not applicable — Australia has no IDX/VOW regime
+  brokerOrAgentSponsorship: false
+  note: Console Group's own customers are licensed real estate agencies, so the
+    software itself is sold to agencies; but that is a software sale, not an API
+    access gate, and no API is offered to those customers as a published product.
+
+openData:
+  present: false
+  note: |
+    Console Group is a private SaaS vendor holding its customers' trust accounting,
+    tenancy and rent-roll data. It publishes no open dataset of any kind. The
+    Australian open counterweight to private control sits with government — state
+    land registries (several now privatised, e.g. NSW Land Registry Services,
+    Victoria's LANDATA), the ABS, and data.gov.au — not with property management
+    software vendors. Nothing open-data-shaped is published by Console Group.
+
+authModel:
+  publishedByConsoleGroup: false
+  scheme: none published
+  probes:
+  - url: https://www.console.com.au/.well-known/openid-configuration
+    status: 404
+  - url: https://api.console.com.au/.well-known/openid-configuration
+    status: 404
+  - url: https://www.console.com.au/.well-known/security.txt
+    status: 404
+  - url: https://api.console.com.au/.well-known/security.txt
+    status: 404
+  customerLogin:
+    url: https://www.console.com.au/login
+    status: 200
+    note: End-user application login for agency staff. Not a developer credential
+      surface — no API key issuance, no OAuth client registration, no scopes are
+      documented anywhere.
+  parentGroupIdentityProvider:
+    url: https://connect.reapit.cloud/.well-known/openid-configuration
+    status: 200
+    contentType: application/json
+    fetched: '2026-07-26'
+    issuer: https://connect.reapit.cloud/
+    grant_types_observed:
+    - client_credentials
+    - authorization_code
+    - refresh_token
+    - password
+    scopes_supported_observed:
+    - openid
+    - profile
+    - offline_access
+    - email
+    - phone
+    - address
+    note: |
+      This is Reapit Connect, the parent group's Auth0-backed OpenID Connect
+      provider serving the Reapit Foundations platform. It is recorded here as
+      context only. It is NOT a Console Group surface: nothing in the Foundations
+      corpus ties Reapit Connect to Console Cloud / Reapit PM, and it is profiled
+      in its own right under all/reapit. It has deliberately NOT been saved into
+      this repository, to avoid attributing a parent-company artifact to Console
+      Group.
+
+webhooksEventsSdksPostman:
+  webhooks: none published by Console Group — absence is the finding
+  events: none published
+  sdks: none published; no npm, PyPI, NuGet or Composer package is referenced
+  postmanCollections: none published
+  cli: none published
+  graphql: none published (https://api.console.com.au/graphql returned 404)
+  mcpServer: none published by Console Group
+  statusPage: none published on console.com.au
+  changelog:
+    url: https://www.console.com.au/product-updates
+    status: 200
+    note: Product release notes for end users, not an API changelog.
+
+productApiFamily:
+  note: |
+    Console Group's product segmentation, taken faithfully from its own navigation
+    and feature pages. NONE of these are exposed as documented APIs; they are
+    recorded so the real shape of the platform is on file for later enrichment.
+  segments:
+  - segment: Property management and trust accounting
+    products:
+    - Console Cloud / Reapit PM (core property management + trust accounting)
+    humanURL: https://www.console.com.au/cloud
+  - segment: Inspections
+    products:
+    - Console Go + Inspect
+    humanURL: https://www.console.com.au/features/console-go-inspect
+  - segment: Maintenance
+    products:
+    - Maintenance / Maintenance Pro
+    humanURL: https://www.console.com.au/features/maintenance
+  - segment: Payments
+    products:
+    - Console Pay
+    humanURL: https://www.console.com.au/features/console-pay
+  - segment: Commercial property
+    products:
+    - Commercial
+    humanURL: https://www.console.com.au/features/commercial
+  - segment: Analytics and reporting
+    products:
+    - Analytics+
+    humanURL: https://www.console.com.au/features/analytics
+  - segment: Owner and tenant experience
+    products:
+    - Owner Portal
+    - Tenant App
+    humanURL: https://www.console.com.au/features/owner-portal
+  - segment: Communications
+    products:
+    - Console SMS
+    humanURL: https://www.console.com.au/features/sms
+  - segment: Sales CRM (sibling product)
+    products:
+    - Console Sales / Reapit Sales (Agentbox)
+    humanURL: https://www.console.com.au/features/console-sales
+
+probes:
+  fetchDate: '2026-07-26'
+  method: anonymous HTTPS GET, redirects followed, 20-30s timeout
+  primaryDomain:
+  - url: https://console.com.au/
+    status: 200
+  - url: https://www.console.com.au/
+    status: 200
+  - url: https://www.console.com.au/robots.txt
+    status: 200
+    note: "User-agent: * / Disallow: (nothing disallowed). Sitemap declared."
+  - url: https://www.console.com.au/sitemap.xml
+    status: 200
+    note: 34,573 bytes, ~85 URLs. Contains NO /developers, /api, /docs, /openapi or
+      any developer-facing path. Marketing, features, resources, case studies,
+      legal and landing pages only.
+  developerSubdomains:
+  - url: https://developer.console.com.au/
+    status: 000
+    note: DNS does not resolve.
+  - url: https://developers.console.com.au/
+    status: 000
+    note: DNS does not resolve.
+  - url: https://docs.console.com.au/
+    status: 000
+    note: DNS does not resolve.
+  - url: https://support.console.com.au/
+    status: 000
+    note: DNS does not resolve.
+  - url: https://login.console.com.au/
+    status: 000
+    note: DNS does not resolve.
+  developerPaths:
+  - url: https://console.com.au/developers
+    status: 404
+  - url: https://console.com.au/api
+    status: 404
+  - url: https://console.com.au/docs
+    status: 404
+  apiHost:
+  - url: https://api.console.com.au/
+    status: 404
+    note: Host resolves and answers, proving an api. hostname is provisioned, but no
+      published surface. Every path below also 404s.
+  - url: https://api.console.com.au/openapi.json
+    status: 404
+  - url: https://api.console.com.au/swagger.json
+    status: 404
+  - url: https://api.console.com.au/api-docs
+    status: 404
+  - url: https://api.console.com.au/docs
+    status: 404
+  - url: https://api.console.com.au/v1
+    status: 404
+  - url: https://api.console.com.au/graphql
+    status: 404
+  - url: https://api.console.com.au/health
+    status: 404
+  - url: https://api.console.com.au/status
+    status: 404
+  otherSubdomains:
+  - url: https://app.console.com.au/
+    status: 200
+    note: Customer application host.
+  - url: https://my.console.com.au/
+    status: 202
+  - url: https://go.console.com.au/
+    status: 200
+    note: Marketing landing pages.
+  - url: https://help.console.com.au/
+    status: 200
+    finalURL: https://help.reapit.com.au/s/
+    note: Redirects to a Salesforce Experience Cloud help centre titled "Reapit
+      Help". Its search endpoint returns 401 anonymously, so the knowledge base
+      could not be searched for API articles without a customer login.
+  marketingPages:
+  - url: https://www.console.com.au/integrate
+    status: 200
+    note: Integration marketplace. ~18 named third-party products. No developer
+      documentation, no API mention, no partner application form.
+  - url: https://www.console.com.au/partners
+    status: 200
+    note: TRAINING partners only (10 certified trainers). Not a technology partner
+      programme. No API access information.
+  - url: https://www.console.com.au/about-us
+    status: 200
+  - url: https://www.console.com.au/pricing
+    status: 200
+  - url: https://www.console.com.au/support
+    status: 200
+  - url: https://www.console.com.au/blog
+    status: 200
+  - url: https://www.console.com.au/product-updates
+    status: 200
+  - url: https://www.console.com.au/case-studies
+    status: 200
+  - url: https://www.console.com.au/contact-us
+    status: 200
+  - url: https://www.console.com.au/book-a-demo
+    status: 200
+  - url: https://www.console.com.au/login
+    status: 200
+  - url: https://www.console.com.au/terms-of-use
+    status: 200
+  - url: https://www.console.com.au/privacy-statement
+    status: 200
+  feeds:
+  - url: https://www.console.com.au/blog/rss.xml
+    status: 404
+  - url: https://www.console.com.au/blog/feed.xml
+    status: 404
+  - url: https://www.console.com.au/blog/rss
+    status: 404
+  - url: https://www.console.com.au/feed
+    status: 404
+  social:
+  - url: https://au.linkedin.com/company/console-australia-new-zealand
+    status: 999
+    note: LinkedIn anti-bot response code; the company page exists and is indexed.
+  parentGroupContext:
+  - url: https://www.reapit.com/
+    status: 200
+  - url: https://www.reapit.com.au/
+    status: 200
+  - url: https://developers.reapit.cloud/
+    status: 200
+    note: Reapit Foundations developer portal (single-page app).
+  - url: https://developers.reapit.cloud/register
+    status: 200
+  - url: https://developers.reapit.cloud/swagger
+    status: 200
+    contentType: text/html
+    note: SPA shell only. The JavaScript bundle (assets/index-B2mDnfzJ.js, 4.5 MB)
+      contains no absolute swagger/openapi spec URL — only the relative route
+      "/swagger" — so the Interactive API Explorer loads its spec after
+      authentication.
+  - url: https://developers.reapit.cloud/swagger.json
+    status: 200
+    contentType: text/html
+    note: NOT a spec. SPA catch-all returning index.html. Confirmed by content type
+      and body. Do not mistake the 200 for a harvestable contract.
+  - url: https://foundations-documentation.reapit.cloud/
+    status: 200
+  - url: https://foundations-documentation.reapit.cloud/llms.txt
+    status: 200
+    note: 6,260-byte documentation index for the parent platform.
+  - url: https://platform.reapit.cloud/
+    status: 401
+  - url: https://platform.reapit.cloud/swagger/v1/swagger.json
+    status: 401
+    body: '{"message":"Unauthorized"}'
+  - url: https://platform.reapit.cloud/openapi.json
+    status: 401
+    body: '{"message":"Unauthorized"}'
+  - url: https://platform.reapit.cloud/$metadata
+    status: 401
+    body: '{"message":"Unauthorized"}'
+  - url: https://platform.reapit.cloud/docs
+    status: 200
+    contentType: application/json
+    body: '{"errorType":"string","errorMessage":"Could not load Swagger documentation.
+      Please try again later","trace":[]}'
+    note: Returns an error object anonymously, not a spec.
+
+findings:
+  summary: |
+    Console Group has NO public developer surface of its own. This is the honest
+    answer and it is not a research failure — it was established by probing the
+    primary domain, four developer-shaped subdomains, three developer-shaped paths,
+    nine paths on a live api. host, the full sitemap, robots.txt, the marketplace
+    page, the partners page and the help centre.
+
+    The company is real and substantial: founded 1992 in Brisbane, first property
+    management software released in Australia, Console Cloud launched 2017,
+    thousands of agency customers across Australia and New Zealand, now owned by
+    the United Kingdom's Reapit and rebranded Reapit PM while still trading from
+    console.com.au. It sits on the property MANAGEMENT side of the Australian
+    value chain — the system of record for the rent roll, the trust account and
+    the tenancy — which is a different seam from listings (REA Group, Domain),
+    from conveyancing settlement (PEXA) and from valuation (PropTrack, CoreLogic).
+
+    An integration API demonstrably exists behind the curtain: the /integrate page
+    lists roughly eighteen live third-party products including maintenance (Bricks
+    + Agent, Tapi), utility connections (MyConnect, Movinghub, Compare and Connect),
+    applications (Snug), forms (REI Forms Live), payments (DEFT) and inspections
+    (Inspection Express, Property Inspection Manager). Those integrations cannot
+    exist without an API. But not one byte of that API is documented publicly. No
+    reference, no OpenAPI, no Swagger, no Postman collection, no SDK, no webhooks
+    documentation, no scopes, no rate limits, no sandbox, no status page.
+  centralQuestion: |
+    CERTIFICATION IS NOT REACHABILITY — and in Australia there is no certification
+    either. Console Group is the clean negative case on both axes: RESO is entirely
+    absent (nothing to certify against without an MLS), AND the endpoint is
+    unreachable (nothing published). Compare this to the American pattern where a
+    RESO-certified Web API endpoint exists and is directory-listed yet still
+    requires an MLS membership and a signed IDX or VOW data licence before a single
+    call succeeds. Console Group has neither the certification badge nor the open
+    door. Recording both facts separately is the point: the absence of RESO here
+    says something about the Australian market structure (portal duopoly, no
+    cooperative database, PEXA as the only genuinely mandated national
+    machine-readable property rail), while the absence of a portal says something
+    about this specific vendor's API strategy.
+  parentCompanyCaveat: |
+    Reapit, the parent, DOES operate a genuine developer platform — Reapit
+    Foundations, with public documentation at foundations-documentation.reapit.cloud,
+    a registration form at developers.reapit.cloud/register, Reapit Connect OpenID
+    Connect authentication with a live anonymous discovery document, a REST API,
+    GraphQL, webhooks and an alpha MCP server. It would be WRONG to credit that to
+    Console Group. A case-insensitive grep across the entire Foundations
+    documentation corpus for "Console", "Console Cloud", "Reapit PM", "Australia",
+    "New Zealand" and "ANZ" returned ZERO matches: Foundations documents the UK
+    AgencyCloud product line, not the ANZ Console platform. Reapit is profiled
+    separately at all/reapit. Console Group's own posture stands on its own
+    evidence, and that evidence says nothing is published. Additionally, even
+    Foundations' own Swagger document is 401-gated at platform.reapit.cloud, so
+    no machine-readable contract could be harvested anonymously from either
+    company.
+  whyNoSpecsSaved: |
+    The openapi/ directory was deliberately NOT created. No OpenAPI, Swagger,
+    OData $metadata, GraphQL SDL or AsyncAPI document belonging to Console Group
+    was found anywhere. The two 200 responses that superficially looked like specs
+    (developers.reapit.cloud/swagger.json and platform.reapit.cloud/docs) were both
+    verified and rejected: the first returns an HTML SPA shell, the second returns
+    a JSON error object. Neither is a spec, and neither belongs to Console Group in
+    any case. Nothing was invented, inferred or reconstructed.
+
+sources:
+- url: https://www.console.com.au/
+  type: Website
+  status: 200
+  note: Homepage. Product suite, ANZ market. No API or developer navigation item
+    anywhere in the header, footer or dropdown menus.
+- url: https://www.console.com.au/about-us
+  type: About
+  status: 200
+  note: "Founded 1992; first property management software released in Australia; \
+    Console Cloud launched 2017; thousands of ANZ agencies; now branded Reapit PM."
+- url: https://www.console.com.au/sitemap.xml
+  type: Sitemap
+  status: 200
+  note: Complete public URL inventory. Zero developer-facing pages.
+- url: https://www.console.com.au/integrate
+  type: Marketplace
+  status: 200
+  note: ~18 named third-party integrations. Proves a private API exists; publishes
+    nothing about it.
+- url: https://www.console.com.au/partners
+  type: Partners
+  status: 200
+  note: Training partners only. Not a technology/integration partner programme.
+- url: https://api.console.com.au/
+  type: APIHost
+  status: 404
+  note: Host provisioned, no published surface. Nine paths probed, all 404.
+- url: https://help.console.com.au/
+  type: HelpCenter
+  status: 200
+  note: Redirects to help.reapit.com.au Salesforce Experience Cloud; search 401s
+    anonymously.
+- url: https://connect.reapit.cloud/.well-known/openid-configuration
+  type: OpenIDConfiguration
+  status: 200
+  note: Parent group identity provider only. Recorded as context, not saved, not
+    attributed to Console Group.
+- url: https://foundations-documentation.reapit.cloud/llms.txt
+  type: Documentation
+  status: 200
+  note: Parent platform documentation index. Contains no Console / ANZ reference.
+- url: https://platform.reapit.cloud/swagger/v1/swagger.json
+  type: OpenAPI
+  status: 401
+  note: Parent platform spec is auth-gated; not harvestable and not Console Group's.
+
+actions:
+  apisYmlCreated: true
+  readmeCreated: true
+  openapiDirectoryCreated: false
+  apisListed: 0
+  reason: |
+    Bootstrap recorded as a built-stub. Identity, market position, product family
+    and legal/marketing properties captured in apis.yml with an empty apis[] block,
+    which is the correct and expected outcome for a property management vendor with
+    no published developer surface. RESO posture, access gate, open-data posture
+    and auth model recorded verbatim above with the HTTP status of every URL
+    probed. No spec, host, endpoint or scope was invented.
