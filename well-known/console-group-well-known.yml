@@ -1,0 +1,80 @@
+generated: '2026-07-26'
+method: searched
+source: anonymous HTTPS GET probes of every Console Group host, 2026-07-26
+summary: |
+  No /.well-known/ discovery document of any kind is published on any Console Group
+  host. Every RFC 9116 security.txt, OIDC discovery, RFC 8414 authorization-server
+  metadata, RFC 9727 api-catalog and ai-plugin.json probe returned 404. No raw files
+  were saved because nothing was served. The absence is the finding: a company that
+  operates a private integration API (proven by its live marketplace) publishes no
+  machine-readable discovery surface at all.
+  The parent group's identity provider (connect.reapit.cloud) DOES serve a live
+  OpenID Connect discovery document, but it belongs to Reapit Foundations (the UK
+  AgencyCloud platform) and is deliberately NOT recorded here as a Console Group
+  artifact — it is profiled under all/reapit.
+hosts:
+- host: https://www.console.com.au
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /security.txt
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: https://api.console.com.au
+  note: |
+    Live host answering with application/json. Root and every probed path return
+    {"message":"no Route matched with those values"} from an nginx-fronted Kong API
+    Gateway — the private integration API exists behind this gateway but no route is
+    exposed anonymously.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /openapi.json
+    status: 404
+  - path: /v1/openapi.json
+    status: 404
+  - path: /swagger/v1/swagger.json
+    status: 404
+  - path: /graphql
+    status: 404
+    note: POST introspection query also returns the Kong no-route error.
+- host: https://app.console.com.au
+  note: 307-redirects to https://pm.reapit.com.au/ — the Reapit PM application host.
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /openapi.json
+    status: 404
+  - path: /swagger.json
+    status: 404
+- host: https://pm.reapit.com.au
+  note: Reapit PM (ANZ) application host that app.console.com.au now redirects to.
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /openapi.json
+    status: 404
+- host: https://sso.console.com.au
+  note: |
+    Resolves (Cloudflare) and 301-redirects to https://login.console.com.au/, which
+    resolves in DNS (13.239.92.208) but does not complete an HTTPS request. No
+    discovery document is reachable on either host.
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 301
+  - path: /.well-known/oauth-authorization-server
+    status: 301
+  - path: /.well-known/security.txt
+    status: 301
+documents_saved: []

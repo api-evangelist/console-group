@@ -1,6 +1,6 @@
 # Console Group (console-group)
 
-Console Group is an Australian property management software company, founded in 1992 in Brisbane, Queensland, that built the first property management and trust accounting software released in Australia and launched its cloud platform, Console Cloud, in 2017. It serves thousands of residential and commercial property management agencies across Australia and New Zealand with trust accounting, tenancy and lease management, inspections (Console Go + Inspect), maintenance, arrears, owner and tenant portals, SMS, analytics and payments (Console Pay). The company was acquired by the United Kingdom's Reapit and its flagship product has been rebranded Reapit PM, though the business continues to trade from console.com.au. In the Australian value chain Console Group sits on the property MANAGEMENT side rather than the sales-listing side, as the system of record for the rent roll, the trust account and the tenancy, downstream of REA Group's realestate.com.au and Domain and separate from PEXA's conveyancing rail and from PropTrack and CoreLogic valuation data. Its API posture is honestly closed. Console Group publishes no developer portal, no API reference, no OpenAPI or Swagger document and no partner developer program on console.com.au; the full sitemap contains no /developers, /api or /docs page, and the developer., developers. and docs. subdomains do not resolve. An api.console.com.au host answers but returns 404 on every probed path. A live integration marketplace at /integrate lists roughly eighteen third-party products, so a working private integration API demonstrably exists, but access is by commercial marketplace arrangement only and nothing about it is published. Australia has no MLS, so there is no RESO Web API or Data Dictionary certification, no OData `$metadata` document and no Universal Property Identifier anywhere in Console Group's stack, and the company publishes no open data.
+Console Group is an Australian property management software company, founded in 1992 in Brisbane, Queensland, that built the first property management and trust accounting software released in Australia and launched its cloud platform, Console Cloud, in 2017. It serves thousands of residential and commercial property management agencies across Australia and New Zealand with trust accounting, tenancy and lease management, inspections (Console Go + Inspect), maintenance, arrears, owner and tenant portals, SMS, analytics and payments (Console Pay). The company was acquired by the United Kingdom's Reapit and its flagship product has been rebranded Reapit PM, though the business continues to trade from console.com.au. In the Australian value chain Console Group sits on the property MANAGEMENT side rather than the sales-listing side, as the system of record for the rent roll, the trust account and the tenancy, downstream of REA Group's realestate.com.au and Domain and separate from PEXA's conveyancing rail and from PropTrack and CoreLogic valuation data. Its API posture is honestly closed. Console Group publishes no developer portal, no API reference, no OpenAPI or Swagger document and no partner developer program on console.com.au; the full sitemap contains no /developers, /api or /docs page, and the developer., developers. and docs. subdomains do not resolve. An api.console.com.au host answers as a Kong API Gateway (`{"message":"no Route matched with those values"}`) but exposes no route on any probed path. A live integration marketplace at /integrate lists more than twenty two-way third-party products, so a working private integration API demonstrably exists, but access is by commercial marketplace arrangement only and nothing about it is published. Australia has no MLS, so there is no RESO Web API or Data Dictionary certification, no OData `$metadata` document and no Universal Property Identifier anywhere in Console Group's stack, and the company publishes no open data.
 
 **APIs.json:** [https://raw.githubusercontent.com/api-evangelist/console-group/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/console-group/refs/heads/main/apis.yml)
 
@@ -75,7 +75,7 @@ entire developer documentation corpus returned zero substantive matches.
 **`partner-only`** — and gated.
 
 Console Group runs a live integration marketplace at
-[/integrate](https://www.console.com.au/integrate) listing roughly eighteen
+[/integrate](https://www.console.com.au/integrate) listing more than twenty
 third-party products (MyConnect, Tapi, Inspection Express, Bricks + Agent, Snug,
 DEFT, REI Forms Live, Property Inspection Manager, Inspection Manager, Move Me In,
 FastConnect, YourPorter, Compare and Connect, Movinghub, plus native Reapit PM
@@ -116,9 +116,18 @@ is **not** attributed to Console Group.
 
 Absence is the finding. Console Group publishes no webhooks, no event catalog, no
 SDKs or packages, no Postman collections, no CLI, no GraphQL endpoint, no MCP
-server, no sandbox and no status page. The
+server and no sandbox. The
 [product updates](https://www.console.com.au/product-updates) page is end-user
-release notes, not an API changelog.
+release notes, not an API changelog — captured in
+[`changelog/console-group-changelog.yml`](changelog/console-group-changelog.yml).
+
+It does, however, run a real public **status page** at
+[status.console.com.au](https://status.console.com.au/) — a Hund.io page with Cloud
+and Accounts components, published percent-uptime and response-time metrics and an
+on-page incident history. Its HAL+JSON API at `/api/v1` returns 401 anonymously, so
+there is no machine-readable status feed. This was found in the 2026-07-26 enrichment
+round and corrects the bootstrap review, which reported no status page after probing
+only console.com.au paths.
 
 ## Product API Family
 
@@ -172,3 +181,20 @@ so no machine-readable contract was harvestable from either company.
 ## Maintainers
 
 - Kin Lane — kin@apievangelist.com
+
+## Enrichment round 2026-07-26
+
+Artifacts added this round, all from live probes or the company's own pages — nothing
+invented:
+
+| Artifact | What it records |
+| --- | --- |
+| [`lifecycle/`](lifecycle/console-group-lifecycle.yml) | The newly-found status page, its components and metrics, the 401-gated Hund API, and the absence of any versioning, deprecation or SLA policy |
+| [`changelog/`](changelog/console-group-changelog.yml) | Eight dated product releases (Aug 2024 – May 2025) from /product-updates, flagged as end-user notes, not an API changelog |
+| [`integrations/_index.yml`](integrations/_index.yml) | All 21 marketplace listings, every one `pending-provider-spec` — no Arazzo is possible without a Console-side contract |
+| [`well-known/`](well-known/console-group-well-known.yml) | Every `/.well-known/` probe across www, api, app, pm, sso — all 404 or 301, nothing saved |
+| [`conformance/`](conformance/console-group-conformance.yml) | Privacy Act 1988 / APP adherence and TLS in transit are the only claims; PCI DSS, SOC 2, ISO 27001, RESO and OData are absent |
+| [`packages/`](packages/console-group-packages.yml) | No first-party client library anywhere; the `@reapit/*` npm namespace belongs to the parent and is deliberately not attributed here |
+| [`security/`](security/console-group-domain-security.yml) | TLS/HSTS across eight Console hosts, plus DNSSEC/CAA/SPF/DMARC on console.com.au |
+| [`llms/`](llms/console-group-llms.txt) | Generated llms.txt (the site serves none) |
+

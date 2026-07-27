@@ -1,0 +1,76 @@
+generated: '2026-07-26'
+method: searched
+source: https://www.console.com.au/product-updates
+scheme: dated monthly product releases (no semantic version, no API version)
+scope: product
+scope_note: |
+  These are END-USER product release notes for Console Cloud / Reapit PM, not an API
+  changelog. Console Group publishes no API and therefore no API changelog, no
+  breaking-change policy and no migration notes. The page is captured because it is
+  the only dated release surface the company operates, and because the integration
+  entries in it are the clearest public evidence of the private integration API.
+current_version: null
+latest_entry: '2025-05'
+freshness_note: |
+  The most recent entry on the page at probe time (2026-07-26) is May 2025 — roughly
+  fourteen months stale. Product communication appears to have migrated to the parent
+  group's Reapit channels after the rebrand to Reapit PM.
+entries:
+- date: '2025-05'
+  breaking: false
+  highlights:
+  - Interface colour palette refresh across Console Cloud.
+  - 'Conversations released: connect a Gmail or Outlook account directly to Console
+    Cloud to pull tenant and owner email into the system, convert messages into bills
+    and follow-ups, and auto-link every email to the tenant/owner timeline and to the
+    property via the lease or management agreement.'
+- date: '2025-03'
+  breaking: false
+  highlights:
+  - Fusion '25 product release (on-demand webinar, business intelligence updates, AI
+    workflows, partner introductions).
+  - Advanced Reports for Enterprises — Multi-Office, Head Office and Executive report
+    views for franchise groups.
+  - 'Console Cloud + InspectRealEstate integration: Console Pay invitations sent as
+    soon as a tenancy application is approved in InspectRealEstate, so bond/deposit
+    and ongoing rent use one payment method.'
+  - FLK it over integration released — electronic signature for agency documents.
+  - Console Go 3.8.0 — create a property on the go, redesigned menu, voice-to-text in
+    search and inspection comment fields.
+- date: '2025-02'
+  breaking: false
+  highlights:
+  - Bulk bill processing now auto-processes all eligible pending payments.
+- date: '2025-01'
+  breaking: false
+  highlights:
+  - Inspection Notifications push alerts in the Console Go mobile app.
+  - Route Mapping — daily inspection map and per-inspection route navigation.
+- date: '2024-11'
+  breaking: false
+  highlights:
+  - Support for adding a $0 bill (on-charging bills already paid by an owner).
+  - 'Coming soon: Agency Fee Remittance summary report auto-generated at agency
+    disbursement, with optional automatic email delivery.'
+- date: '2024-10'
+  breaking: false
+  highlights:
+  - Agentbox Proposals integration — generate custom CMAs inside the Lease Renewal
+    workflow and attach them to the Owner Intention email (requires Console Cloud +
+    Agentbox Premium).
+  - 'Coming soon: Route Mapping for inspections; on-the-go access to sent SMS and
+    email tied to a property.'
+- date: '2024-09'
+  breaking: false
+  highlights:
+  - Creditor 'Bills Priority' (low/medium/high) honoured by bulk bill processing
+    (Premium and Enterprise only).
+  - Contextual notes for Bills, Disbursements and Receipting (Premium and Enterprise
+    only).
+  - Training tab added to the All Properties report in Analytics+.
+- date: '2024-08'
+  breaking: false
+  highlights:
+  - In-app task notifications, refreshed navigation and quick-add in Console Go.
+  - 'Coming soon: automatic transfer of approved tenant application PDFs from
+    InspectRealEstate into Console Cloud.'

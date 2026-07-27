@@ -148,7 +148,17 @@ webhooksEventsSdksPostman:
   cli: none published
   graphql: none published (https://api.console.com.au/graphql returned 404)
   mcpServer: none published by Console Group
-  statusPage: none published on console.com.au
+  statusPage: |
+    CORRECTED 2026-07-26 (enrichment round 2). A real public status page IS published
+    at https://status.console.com.au/ (200, "Status Page - Console Australia", powered
+    by Hund.io, CNAME console.hund.io) with two components — Cloud and Accounts — both
+    Operational at probe time, plus published percent-uptime and response-time metrics
+    for the past day/week/month and an on-page incident history. The bootstrap round
+    probed only console.com.au paths and the developer-shaped subdomains and therefore
+    missed it; a subdomain sweep found it. Its Hund HAL+JSON API at
+    https://status.console.com.au/api/v1 returns 401 anonymously, and /rss, /history.rss,
+    /components.json and /status.json all 404 or 406, so there is no anonymous
+    machine-readable status feed. Captured in lifecycle/console-group-lifecycle.yml.
   changelog:
     url: https://www.console.com.au/product-updates
     status: 200

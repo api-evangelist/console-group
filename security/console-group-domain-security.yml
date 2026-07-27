@@ -1,0 +1,68 @@
+generated: '2026-07-26'
+method: probed
+source: |
+  live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts (0-working/probe-domain-security.py),
+  extended by a manual subdomain sweep and per-host TLS/HSTS probe on 2026-07-26
+hosts:
+- host: www.console.com.au
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  1 12:50:36 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: api.console.com.au
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Dec 23 23:59:59 2026 GMT
+  hsts: false
+  http_status: 404
+  note: Kong API Gateway behind nginx; no route exposed anonymously, no HSTS header.
+- host: app.console.com.au
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Dec 23 23:59:59 2026 GMT
+  hsts: false
+  http_status: 307
+  note: Redirects to pm.reapit.com.au (Reapit PM application host).
+- host: my.console.com.au
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  4 04:27:38 2026 GMT
+  hsts: false
+  http_status: 301
+  note: Redirects to myconsole.com.au; Cloudflare-fronted.
+- host: go.console.com.au
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 18 20:32:03 2026 GMT
+  hsts: false
+  http_status: 302
+  note: Marketo landing-page host (console.mktoweb.com).
+- host: help.console.com.au
+  https: true
+  tls_version: null
+  hsts: true
+  hsts_max_age: 63072000
+  hsts_include_subdomains: true
+  http_status: 301
+  note: |
+    Salesforce Experience Cloud help centre (…live.siteforce.com). TLS handshake could
+    not be verified from the probing host (local CA chain), but HTTPS requests succeed
+    and the strongest HSTS policy on any Console host is served here.
+- host: status.console.com.au
+  https: true
+  http_status: 200
+  hsts: false
+  note: Hund.io status page (CNAME console.hund.io).
+- host: sso.console.com.au
+  https: true
+  http_status: 301
+  hsts: false
+  note: Cloudflare; 301 to login.console.com.au, which resolves but does not answer HTTPS.
+domains:
+- domain: console.com.au
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none

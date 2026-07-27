@@ -1,0 +1,43 @@
+generated: '2026-07-26'
+method: searched
+source: npm registry search, PyPI JSON API, console.com.au site + sitemap
+summary: |
+  No first-party Console Group client library exists on any public package registry.
+  Searched npm (registry search for "console cloud property management" and for the
+  company/product names), PyPI (console-cloud, consolegroup, console-au — all 404),
+  and the whole console.com.au sitemap, which contains no SDK, download or code page.
+  This is consistent with the rest of the posture: no published API means no published
+  client libraries.
+packages: []
+excluded:
+  note: |
+    The @reapit/* namespace on npm (@reapit/connect-session, @reapit/cli,
+    @reapit/elements, @reapit/elemental, @reapit/api-key-verify, @reapit-cdk/*) is
+    REAL and first-party — but it belongs to Reapit Foundations, the parent group's
+    UK AgencyCloud developer platform, not to Console Group. A grep of the Foundations
+    documentation corpus returns zero references to Console, Console Cloud, Reapit PM,
+    Australia, New Zealand or ANZ. Attributing those packages to Console Group would
+    be false; they are catalogued under all/reapit.
+  namespaces:
+  - registry: npm
+    namespace: '@reapit'
+    owner: Reapit (parent group)
+    attributed_to: all/reapit
+registries_searched:
+- registry: npm
+  method: registry search API
+  result: no Console Group package
+- registry: pypi
+  method: per-name JSON API probes (console-cloud, consolegroup, console-au)
+  result: 404 on every candidate
+- registry: github
+  method: org/user probe (consolegroup, console-group, console-australia, consolecloud)
+  result: |
+    No Console Group GitHub organisation. github.com/consolecloud exists but is an
+    empty personal user account (0 public repos, created 2022) with no company
+    attribution — not wired as a GitHubOrganization pointer.
+registries_not_probed:
+  note: |
+    Packagist, RubyGems, NuGet, Maven Central, pkg.go.dev and crates.io were not
+    individually queried. With no developer portal, no SDK page and no GitHub
+    organisation to source a package name from, there is no candidate name to probe.

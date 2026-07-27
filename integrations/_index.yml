@@ -1,0 +1,171 @@
+generated: '2026-07-26'
+method: searched
+source: https://www.console.com.au/integrate
+status: listing-only
+status_note: |
+  Every entry below is LISTING-ONLY. No Arazzo workflow could be authored for any of
+  them because Console Group publishes no OpenAPI, no operationIds and no integration
+  documentation of any kind — a 2-source Arazzo needs a machine-readable contract on
+  the Console side, and there is none. The marketplace itself is the proof that a
+  private integration API exists: roughly twenty named third-party products are
+  described as two-way integrations with Console Cloud / Reapit PM. Nothing about how
+  they connect is published. Partner-side specs are noted where the partner is already
+  profiled in the API Evangelist network.
+counts:
+  listings: 21
+  with_arazzo: 0
+  pending_provider_spec: 21
+integrations:
+- slug: reapit-pm-inspect
+  label: Reapit PM Inspect
+  partner: Reapit (first-party)
+  category: native-app
+  use_case: Mobile inspections and maintenance for Reapit PM.
+  arazzo: null
+  status: pending-provider-spec
+- slug: console-pay
+  label: Console Pay
+  partner: Console Group (first-party)
+  category: native-app
+  use_case: Automated rent and one-off payment collection inside Reapit PM to reduce
+    arrears.
+  arazzo: null
+  status: pending-provider-spec
+- slug: reapit-sales
+  label: Reapit Sales
+  partner: Reapit (first-party)
+  category: native-app
+  use_case: Sales transactions, vendor-paid advertising, automated fee calculation and
+    contract progress tracking alongside property management.
+  arazzo: null
+  status: pending-provider-spec
+- slug: inspectrealestate
+  label: InspectRealEstate
+  partner: InspectRealEstate (Reapit group)
+  category: reapit-integration
+  use_case: Applications and managed tenancy through to rental listings; approved
+    applications trigger Console Pay invitations and transfer application PDFs.
+  arazzo: null
+  status: pending-provider-spec
+- slug: agentbox
+  label: Agentbox
+  partner: Agentbox (Reapit group)
+  category: reapit-integration
+  use_case: Sales CRM alongside property management; Agentbox Proposals generates
+    custom CMAs inside the Lease Renewal workflow.
+  network_repo: all/agentbox
+  arazzo: null
+  status: pending-provider-spec
+- slug: myconnect
+  label: MyConnect
+  partner: MyConnect
+  category: connections
+  use_case: Tenant utility connections at move-in.
+  arazzo: null
+  status: pending-provider-spec
+- slug: tapi
+  label: Tapi
+  partner: Tapi
+  category: maintenance
+  use_case: Property maintenance coordination add-on.
+  arazzo: null
+  status: pending-provider-spec
+- slug: inspection-express
+  label: Inspection Express
+  partner: Inspection Express
+  category: inspections
+  use_case: Inspection management add-on.
+  arazzo: null
+  status: pending-provider-spec
+- slug: move-me-in
+  label: Move Me In
+  partner: Move Me In (Reapit group)
+  category: connections
+  use_case: No-cost tenant connections service for moving-home essentials.
+  arazzo: null
+  status: pending-provider-spec
+- slug: fastconnect
+  label: FastConnect
+  partner: FastConnect
+  category: connections
+  use_case: New Zealand home-services connections.
+  arazzo: null
+  status: pending-provider-spec
+- slug: yourporter
+  label: YourPorter
+  partner: YourPorter
+  category: connections
+  use_case: Moving-home connections add-on.
+  arazzo: null
+  status: pending-provider-spec
+- slug: compare-and-connect
+  label: Compare and Connect
+  partner: Compare & Connect
+  category: connections
+  use_case: Utility comparison and connection for tenants.
+  arazzo: null
+  status: pending-provider-spec
+- slug: movinghub
+  label: Movinghub
+  partner: Movinghub
+  category: connections
+  use_case: Utility connection, address change and deal search at move.
+  arazzo: null
+  status: pending-provider-spec
+- slug: rei-forms-live
+  label: REI Forms Live
+  partner: REI Forms Live
+  category: forms
+  use_case: Forms and contract management integrated into Console Cloud workflows.
+  arazzo: null
+  status: pending-provider-spec
+- slug: flk-it-over
+  label: FLK it over
+  partner: FLK it over
+  category: forms
+  use_case: Electronic signature for agency documents; released March 2025.
+  source: https://www.console.com.au/product-updates
+  arazzo: null
+  status: pending-provider-spec
+- slug: console-go-inspect
+  label: Console Go + Inspect
+  partner: Console Group (first-party)
+  category: inspections
+  use_case: Mobile inspections, maintenance lodgement, property and contact lookup.
+  arazzo: null
+  status: pending-provider-spec
+- slug: property-inspection-manager
+  label: Property Inspection Manager
+  partner: Property Inspection Manager
+  category: inspections
+  use_case: Inspection workflow automation add-on.
+  arazzo: null
+  status: pending-provider-spec
+- slug: inspection-manager
+  label: Inspection Manager
+  partner: Inspection Manager
+  category: inspections
+  use_case: Inspection workflow performance add-on.
+  arazzo: null
+  status: pending-provider-spec
+- slug: bricks-and-agent
+  label: Bricks + Agent
+  partner: Bricks + Agent
+  category: maintenance
+  use_case: Maintenance workflow automation with in-app functionality.
+  arazzo: null
+  status: pending-provider-spec
+- slug: deft
+  label: DEFT
+  partner: DEFT (Macquarie)
+  category: payments
+  use_case: Payment collection and automated receipting.
+  arazzo: null
+  status: pending-provider-spec
+- slug: snug
+  label: Snug
+  partner: Snug
+  category: applications
+  use_case: Tenancy applications add-on to the Console Cloud advertising workflow.
+  arazzo: null
+  status: pending-provider-spec

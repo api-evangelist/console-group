@@ -1,0 +1,68 @@
+generated: '2026-07-26'
+method: searched
+source: https://status.console.com.au/ + https://www.console.com.au/product-updates
+status_page: https://status.console.com.au/
+status_page_detail:
+  url: https://status.console.com.au/
+  status: 200
+  title: Status Page - Console Australia
+  provider: Hund.io
+  cname: console.hund.io
+  state_at_probe: Operating Normally (2026-07-27 AEST)
+  components:
+  - name: Cloud
+    state: Operational
+  - name: Accounts
+    state: Operational
+  metrics_published:
+  - Cloud percent uptime (day / week / month)
+  - Cloud response time (ms)
+  - Accounts percent uptime (day / week / month)
+  - Accounts response time (ms)
+  incident_history: Published on-page ("Recent History"); empty at probe time.
+  subscribe: true
+  machine_readable_feed:
+    url: https://status.console.com.au/api/v1
+    status: 401
+    content_type: application/hal+json
+    note: |
+      Hund's HAL+JSON API is present on the Console-branded status host but returns
+      401 anonymously, so component/incident state cannot be consumed programmatically
+      without credentials. /rss, /history.rss, /components.json and /status.json all
+      404 or 406 — there is no anonymous machine-readable status feed.
+  note: |
+    NEW IN THIS ROUND. The bootstrap review recorded "no status page published on
+    console.com.au" after probing only the marketing site; a real, live, branded
+    status page is served at the status. subdomain and was found by subdomain sweep.
+versioning:
+  scheme: none published
+  current: null
+  docs: null
+  note: |
+    Console Group publishes no API versioning policy, because it publishes no API.
+    The product itself is a continuously-released cloud application; the only public
+    version numbers that appear anywhere are mobile app builds (e.g. "Console Go
+    Version 3.8.0" in the March 2025 product update).
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: |
+    No deprecation policy, no RFC 8594 Sunset/Deprecation header documentation, and
+    no end-of-life schedule is published. The one deprecation-shaped event visible
+    publicly is the product-level rebrand of Console Cloud to Reapit PM following the
+    Reapit acquisition, announced through marketing pages rather than a policy.
+sla:
+  url: null
+  uptime_target: null
+  note: |
+    No public SLA or uptime commitment. The status page publishes measured uptime
+    percentages but states no target. Any availability commitment would sit inside a
+    negotiated agency subscription agreement, not on the public site.
+release_notes:
+  url: https://www.console.com.au/product-updates
+  status: 200
+  cadence: monthly (end-user product releases)
+  latest_entry: May 2025
+  note: |
+    End-user release notes, not an API changelog. See changelog/console-group-changelog.yml.
+deprecated_operations: []

@@ -1,0 +1,50 @@
+# Console Group
+
+> Australian property management and trust accounting software company, founded 1992 in Brisbane. Console Cloud (rebranded Reapit PM after the Reapit acquisition) is the system of record for the rent roll, the trust account and the tenancy for thousands of residential and commercial agencies across Australia and New Zealand. Console Group publishes NO public API: no developer portal, no API reference, no OpenAPI/Swagger/GraphQL/AsyncAPI document, no SDK, no webhooks documentation and no partner developer programme. A private integration API demonstrably exists — a live marketplace lists ~21 two-way third-party integrations — but access is by commercial arrangement only and nothing about it is published.
+
+## APIs
+
+- No public API. https://api.console.com.au/ resolves and answers as a Kong API Gateway ("no Route matched with those values") but exposes no anonymous route, no spec and no GraphQL endpoint.
+- No /.well-known/ discovery document on any host (security.txt, openid-configuration, oauth-authorization-server, api-catalog, ai-plugin.json all 404).
+- Australia has no MLS, so there is no RESO Web API or Data Dictionary certification, no OData $metadata and no Universal Property Identifier anywhere in the stack.
+
+## Products
+
+- [Console Cloud / Reapit PM](https://www.console.com.au/cloud): property management and trust accounting.
+- [Console Go + Inspect](https://www.console.com.au/features/console-go-inspect): mobile inspections and maintenance.
+- [Maintenance](https://www.console.com.au/features/maintenance): maintenance workflow.
+- [Console Pay](https://www.console.com.au/features/console-pay): rent and one-off payment collection.
+- [Commercial](https://www.console.com.au/features/commercial): commercial property management.
+- [Analytics+](https://www.console.com.au/features/analytics): reporting and business intelligence.
+- [Owner Portal / Tenant App](https://www.console.com.au/features/owner-portal): owner and tenant experience.
+- [Console SMS](https://www.console.com.au/features/sms): agency communications.
+- [Console Sales / Reapit Sales](https://www.console.com.au/features/console-sales): sales CRM sibling product.
+
+## Docs
+
+- [Website](https://www.console.com.au/)
+- [Marketplace / integrations](https://www.console.com.au/integrate): ~21 named two-way integrations; no developer documentation, no partner application form.
+- [Product updates](https://www.console.com.au/product-updates): dated end-user release notes (latest entry May 2025).
+- [Help centre](https://help.console.com.au/): redirects to Reapit Help (Salesforce Experience Cloud); search is 401-gated anonymously.
+- [Status page](https://status.console.com.au/): live Hund.io status page, components Cloud and Accounts, published uptime and response-time metrics. Its HAL+JSON API at /api/v1 is 401-gated.
+- [Pricing](https://www.console.com.au/pricing)
+- [Support](https://www.console.com.au/support)
+- [Blog](https://www.console.com.au/blog)
+- [Terms of use](https://www.console.com.au/terms-of-use)
+- [Privacy statement](https://www.console.com.au/privacy-statement): Privacy Act 1988 (Cth) and the Australian Privacy Principles.
+
+## API Evangelist artifacts
+
+- [apis.yml](https://raw.githubusercontent.com/api-evangelist/console-group/refs/heads/main/apis.yml)
+- [Well-known probe index](https://raw.githubusercontent.com/api-evangelist/console-group/refs/heads/main/well-known/console-group-well-known.yml)
+- [Lifecycle](https://raw.githubusercontent.com/api-evangelist/console-group/refs/heads/main/lifecycle/console-group-lifecycle.yml)
+- [Changelog](https://raw.githubusercontent.com/api-evangelist/console-group/refs/heads/main/changelog/console-group-changelog.yml)
+- [Integrations index](https://raw.githubusercontent.com/api-evangelist/console-group/refs/heads/main/integrations/_index.yml)
+- [Conformance](https://raw.githubusercontent.com/api-evangelist/console-group/refs/heads/main/conformance/console-group-conformance.yml)
+- [Packages](https://raw.githubusercontent.com/api-evangelist/console-group/refs/heads/main/packages/console-group-packages.yml)
+- [Domain security](https://raw.githubusercontent.com/api-evangelist/console-group/refs/heads/main/security/console-group-domain-security.yml)
+- [Review](https://raw.githubusercontent.com/api-evangelist/console-group/refs/heads/main/review.yml)
+
+## Related
+
+- [Reapit](https://www.reapit.com/): UK parent company. Reapit Foundations is a genuine developer platform (docs, registration, Reapit Connect OIDC, REST, GraphQL, webhooks) but documents the UK AgencyCloud line, not the ANZ Console platform — profiled separately at all/reapit.

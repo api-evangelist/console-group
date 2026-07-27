@@ -17,14 +17,17 @@ description: Console Group is an Australian property management software company
   is honestly closed. Console Group publishes no developer portal, no API reference, no OpenAPI
   or Swagger document and no partner developer program on console.com.au; the full sitemap
   contains no /developers, /api or /docs page, and the developer., developers. and docs. subdomains
-  do not resolve. An api.console.com.au host answers but returns 404 on every probed path.
-  A live integration marketplace at /integrate lists roughly eighteen third-party products,
+  do not resolve. An api.console.com.au host answers as a Kong API Gateway but returns
+  "no Route matched with those values" on every probed path, including GraphQL. A live
+  integration marketplace at /integrate lists more than twenty two-way third-party products,
   so a working private integration API demonstrably exists, but access is by commercial marketplace
-  arrangement only and nothing about it is published. Australia has no MLS, so there is no
-  RESO Web API or Data Dictionary certification, no OData $metadata document and no Universal
-  Property Identifier anywhere in Console Group's stack, and the company publishes no open
-  data.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/groq.png
+  arrangement only and nothing about it is published. The company does run a real public status
+  page at status.console.com.au (Hund.io, Cloud and Accounts components, published uptime and
+  response-time metrics), though its HAL+JSON status API is credential-gated. Australia has no
+  MLS, so there is no RESO Web API or Data Dictionary certification, no OData $metadata document
+  and no Universal Property Identifier anywhere in Console Group's stack, and the company
+  publishes no open data.
+image: https://cdn.prod.website-files.com/60fe7d866b8c12591c099a3c/655ae1c47dbc4d7805827607_Console_Meta_Image.png
 tags:
 - Real Estate
 - Australia
@@ -42,6 +45,23 @@ modified: '2026-07-26'
 specificationVersion: '0.19'
 apis: []
 common:
+- type: DomainSecurity
+  url: security/console-group-domain-security.yml
+- type: StatusPage
+  url: https://status.console.com.au/
+- type: Lifecycle
+  url: lifecycle/console-group-lifecycle.yml
+- type: ChangeLog
+  name: Product updates changelog artifact
+  url: changelog/console-group-changelog.yml
+- type: Integrations
+  url: integrations/_index.yml
+- type: Conformance
+  url: conformance/console-group-conformance.yml
+- type: Packages
+  url: packages/console-group-packages.yml
+- type: LLMsTxt
+  url: llms/console-group-llms.txt
 - type: Website
   url: https://www.console.com.au/
 - type: Product

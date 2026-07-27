@@ -1,0 +1,90 @@
+generated: '2026-07-26'
+method: searched
+source: |
+  https://www.console.com.au/privacy-statement, https://www.console.com.au/terms-of-use,
+  https://www.console.com.au/features/console-pay, plus the bootstrap RESO/OData probes
+  recorded in review.yml
+summary: |
+  Console Group asserts one regulatory posture publicly — Australian privacy law — and
+  nothing else. No certification, no security attestation, no API-standard conformance
+  and no industry data standard is claimed anywhere on console.com.au. Because there is
+  no published API, every API-shaped standard below is genuinely not-applicable rather
+  than failed. Recorded so the negative is on file with evidence, not re-researched
+  every round.
+standards:
+- id: privacy-act-1988-app
+  name: Privacy Act 1988 (Cth) and the Australian Privacy Principles
+  conforms: true
+  evidence: |
+    Privacy statement: "The Privacy Act 1988 (Cth) (Privacy Act) and Australian Privacy
+    Principles (APPs) govern the way in which we must manage your personal information."
+  source: https://www.console.com.au/privacy-statement
+- id: tls-in-transit
+  name: Encryption in transit
+  conforms: true
+  evidence: |
+    Privacy statement claims HTTPS/SSL with 128-bit encryption for submitted
+    information; live probe confirms TLS 1.3 with HSTS max-age 31536000 on
+    www.console.com.au (see security/console-group-domain-security.yml).
+  source: https://www.console.com.au/privacy-statement
+- id: pci-dss
+  name: PCI DSS
+  conforms: null
+  evidence: |
+    Not published. Console Pay is a live payment-collection product, but the feature
+    page makes no PCI DSS claim and no compliance or trust page exists on the domain
+    (/security and /trust both 404).
+- id: soc2
+  name: SOC 2
+  conforms: null
+  evidence: Not published; no trust centre, no attestation page, no report request form.
+- id: iso-27001
+  name: ISO/IEC 27001
+  conforms: null
+  evidence: Not published anywhere on console.com.au.
+- id: gdpr
+  name: GDPR
+  conforms: null
+  evidence: |
+    Not claimed. The privacy statement is written to Australian law only, consistent
+    with an ANZ-only customer base.
+- id: reso-web-api
+  name: RESO Web API
+  conforms: false
+  evidence: |
+    No RESO reference anywhere. Australia has no MLS, so there is no cooperative
+    database and no RESO certification programme an Australian property management
+    vendor could join.
+- id: reso-data-dictionary
+  name: RESO Data Dictionary
+  conforms: false
+  evidence: No RESO Data Dictionary field naming or version claim found.
+- id: odata
+  name: OData
+  conforms: false
+  evidence: 'No $metadata document served on any probed host (404 / not an OData service).'
+- id: oauth2
+  name: OAuth 2.0
+  conforms: null
+  evidence: |
+    Not applicable — no published API and no published authorization server. sso. and
+    login. hosts exist but serve no discovery document.
+- id: openid-connect
+  name: OpenID Connect
+  conforms: null
+  evidence: |
+    Not applicable to Console Group. The parent group runs a live OIDC provider at
+    connect.reapit.cloud, but nothing ties it to Console Cloud / Reapit PM; it is
+    recorded under all/reapit.
+- id: rfc9457-problem-details
+  name: RFC 9457 Problem Details
+  conforms: null
+  evidence: Not applicable — no published API surface to inspect.
+- id: rfc9116-security-txt
+  name: RFC 9116 security.txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on www. and api. hosts.
+- id: rfc8594-sunset-header
+  name: RFC 8594 Sunset header
+  conforms: false
+  evidence: No deprecation policy or Sunset header documentation published.
