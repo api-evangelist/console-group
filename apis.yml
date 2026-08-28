@@ -27,6 +27,17 @@ description: Console Group is an Australian property management software company
   MLS, so there is no RESO Web API or Data Dictionary certification, no OData $metadata document
   and no Universal Property Identifier anywhere in Console Group's stack, and the company
   publishes no open data.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://cdn.prod.website-files.com/60fe7d866b8c12591c099a3c/655ae1c47dbc4d7805827607_Console_Meta_Image.png
 tags:
 - Real-Estate
